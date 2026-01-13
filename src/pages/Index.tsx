@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MarqueeText from "@/components/MarqueeText";
 import ProductCard from "@/components/ProductCard";
+import HeroSlider from "@/components/HeroSlider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Play, Leaf, Droplets, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
@@ -11,6 +12,8 @@ import { Link, useNavigate } from "react-router-dom";
 import heroMain from "@/assets/hero-main.jpg";
 import heroModel3 from "@/assets/hero-model-3.jpg";
 import heroModel4 from "@/assets/hero-model-4.jpg";
+import heroModel1 from "@/assets/hero-model-1.jpg";
+import heroModel2 from "@/assets/hero-model-2.jpg";
 import productSerum from "@/assets/product-serum.jpg";
 import productCream from "@/assets/product-cream.jpg";
 import collectionAdja from "@/assets/collection-adja.jpg";
@@ -58,6 +61,13 @@ const Index = () => {
     }
   ];
 
+  const heroImages = [
+    { src: heroMain, alt: "Lyco Cosmetics Hero" },
+    { src: heroModel1, alt: "Luxury Skincare Model 1" },
+    { src: heroModel2, alt: "Luxury Skincare Model 2" },
+    { src: heroModel3, alt: "Luxury Skincare Model 3" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -69,25 +79,18 @@ const Index = () => {
       /> */}
 
       {/* New Hero Section */}
- <section className="relative min-h-[95vh] overflow-hidden">
-  {/* Background Image */}
-  <div className="absolute inset-0">
-    <img
-      src={heroMain}
-      alt="Lyco Cosmetics Hero"
-      className="w-full h-full object-cover object-center"
-    />
-    <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/40 to-transparent" />
-  </div>
+      <section className="relative min-h-[95vh] overflow-hidden">
+        {/* Hero Slider */}
+        <HeroSlider images={heroImages} autoSlideInterval={5000} />
 
   {/* Hero Content */}
    <div className="relative container mx-auto px-4 min-h-[95vh] flex items-center">
     <div className="max-w-xl">
 
       {/* Eyebrow Text */}
-      {/* <p className="text-primary font-body uppercase tracking-[0.35em] text-xs mb-6">
+      <p className="text-primary font-body uppercase tracking-[0.35em] text-xs mb-6">
         Luxury Skincare & Wellness
-      </p> */}
+      </p>
 
       {/* Brand Name */}
       <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] mb-1">
