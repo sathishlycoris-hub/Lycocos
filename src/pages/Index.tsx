@@ -81,7 +81,7 @@ const Index = () => {
   </div>
 
   {/* Hero Content */}
-  <div className="relative container mx-auto px-4 min-h-[95vh] flex items-center">
+   <div className="relative container mx-auto px-4 min-h-[95vh] flex items-center">
     <div className="max-w-xl">
 
       {/* Eyebrow Text */}
@@ -90,7 +90,12 @@ const Index = () => {
       </p> */}
 
       {/* Brand Name */}
-     
+      <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] mb-1">
+        Lyco
+      </h1>
+      <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light italic text-primary leading-[1.05] mb-8">
+        Cosmetics
+      </h1>
 
       {/* Description */}
       <p className="font-body text-muted-foreground text-lg md:text-xl mb-10 max-w-md">
@@ -141,6 +146,7 @@ const Index = () => {
       </div>
     </div>
   </div>
+
 
   {/* Scroll Indicator */}
   <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground text-xs tracking-widest">
