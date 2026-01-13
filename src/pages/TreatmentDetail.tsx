@@ -74,7 +74,7 @@ const TreatmentDetail = () => {
                 {treatment.name}
               </h1>
               <p className="font-display text-2xl text-foreground mb-2">
-                €{treatment.price.toFixed(2)}
+                ₹{treatment.price.toFixed(2)}
               </p>
               <p className="text-sm text-muted-foreground mb-6">
                 Tax included. Treatment available at our clinic.

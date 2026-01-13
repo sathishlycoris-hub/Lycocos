@@ -78,7 +78,7 @@ const ProductDetail = () => {
                 {product.name}
               </h1>
               <p className="font-display text-2xl text-foreground mb-2">
-                €{product.price.toFixed(2)}
+                ₹{product.price.toFixed(2)}
               </p>
               <p className="text-sm text-muted-foreground mb-6">
                 Tax included. Shipping calculated at checkout.
@@ -130,7 +130,7 @@ const ProductDetail = () => {
               </div>
 
               {/* Description Accordion */}
-              <Accordion type="single" collapsible className="border-t">
+              {/* <Accordion type="single" collapsible className="border-t">
                 <AccordionItem value="description">
                   <AccordionTrigger className="font-body font-medium">
                     📦 Description
@@ -141,7 +141,18 @@ const ProductDetail = () => {
                     types.
                   </AccordionContent>
                 </AccordionItem>
-              </Accordion>
+              </Accordion> */}
+              <div className="border-t pt-4">
+                <h3 className="font-body font-medium mb-2">
+                  📦 Description
+                </h3>
+                <p className="font-body text-muted-foreground">
+                  Experience the luxurious care of {product.name}. Formulated with premium
+                  natural ingredients to nourish and protect your skin. Suitable for all skin
+                  types.
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
