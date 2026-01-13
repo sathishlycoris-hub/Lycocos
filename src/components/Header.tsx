@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
-import { Search, ShoppingBag, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Search, ShoppingBag, User, ChevronUp, ChevronDown, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const { items, setIsCartOpen } = useCart();
+  const navigate = useNavigate();
   const itemCount = items.reduce((acc, item) => acc + item.quantity, 0);
+  const [isAnnouncementOpen, setIsAnnouncementOpen] = useState(false);
 
   const navLinks = [
     { name: "Welcome", path: "/" },
@@ -20,15 +24,48 @@ const Header = () => {
         <div className="container mx-auto flex justify-between items-center">
           <p className="text-primary-foreground text-sm font-body">
             Your beauty essentials are waiting for you!{" "}
-            <button className="ml-2 bg-primary-foreground/20 text-primary-foreground px-3 py-0.5 rounded text-xs hover:bg-primary-foreground/30 transition-colors">
-              More ▼
+            <button 
+              onClick={() => setIsAnnouncementOpen(!isAnnouncementOpen)}
+              className="ml-2 bg-primary-foreground/20 text-primary-foreground px-3 py-0.5 rounded text-xs hover:bg-primary-foreground/30 transition-colors inline-flex items-center gap-1"
+            >
+              More {isAnnouncementOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
             </button>
           </p>
-          <span className="text-primary-foreground text-sm font-body">
-            South Korea EUR € ▼
+          <span className="text-primary-foreground text-sm font-body hidden sm:block">
+            India INR ₹ ▼
           </span>
         </div>
       </div>
+
+      {/* Announcement Dropdown Panel */}
+      {isAnnouncementOpen && (
+        <div className="bg-primary py-12 px-4 relative">
+          <button 
+            onClick={() => setIsAnnouncementOpen(false)}
+            className="absolute top-4 right-4 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+          >
+            <X size={24} />
+          </button>
+          <div className="container mx-auto text-center max-w-2xl">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4 italic">
+              Announcement title
+            </h2>
+            <p className="font-body text-primary-foreground/90 mb-6">
+              Pair text with an image to focus on your chosen product, collection, or blog post. Include information about availability, style, or even a review.
+            </p>
+            <Button 
+              variant="outline" 
+              className="bg-background text-primary border-none hover:bg-background/90 px-8"
+              onClick={() => {
+                setIsAnnouncementOpen(false);
+                navigate('/products');
+              }}
+            >
+              Buy Now
+            </Button>
+          </div>
+        </div>
+      )}
 
       {/* Main Header */}
       <div className="bg-background py-4 px-4 border-b border-border">

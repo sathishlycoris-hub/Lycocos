@@ -29,9 +29,9 @@ const Partners = () => {
                   Phone:
                 </h2>
                 <ul className="space-y-2 text-muted-foreground font-body text-sm">
-                  <li>• +352 661 822 010 Luxembourg</li>
-                  <li>• +221 77 630 13 34 Senegal</li>
-                  <li>• +1 (909) 735-2062 USA</li>
+                  <li>• +91-7673946789 Main Office</li>
+                  <li>• +91-7702747747 Branch</li>
+                  <li></li>
                 </ul>
               </div>
 
@@ -40,7 +40,7 @@ const Partners = () => {
                   E-mail:
                 </h2>
                 <a href="mailto:contact@lycocosmetics.com" className="text-foreground font-body text-sm hover:text-primary transition-colors">
-                  contact@lycocosmetics.com
+                  contact@lycoris.in
                 </a>
               </div>
 
@@ -52,11 +52,14 @@ const Partners = () => {
                   <li>• LYCO COSMETICS</li>
                   <li className="ml-3">
                     <a href="#" className="text-primary hover:underline">
-                      4c Latest Sol2543 Bouneweg-Süd Luxembourg
+                     Flat No. G1 & G3, RS No. 378/1A, 1B, 1C, Aikya-2 Apartments, 
+
                     </a>
                   </li>
-                  <li>• Facebook: <a href="#" className="text-primary hover:underline">https://www.facebook.com/Lycocosmetics/?locale=fr_FR</a></li>
-                  <li>• Tik Tok: <a href="#" className="text-primary hover:underline">https://www.tiktok.com/@lycocosmeticsclinique</a></li>
+                  <li>• street: <a href="#" className="text-primary hover:underline">Korukonda Road,
+Konthamuru, Rajahmundry,
+East Godavari,</a></li>
+                  <li>• State: <a href="#" className="text-primary hover:underline">Andhra Pradesh – 533102</a></li>
                 </ul>
               </div>
             </div>

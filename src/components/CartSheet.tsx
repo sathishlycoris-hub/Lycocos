@@ -65,7 +65,7 @@ const CartSheet = ({ open, onOpenChange, items, onUpdateQuantity, onRemoveItem }
                       </button>
                     </div>
                     <p className="font-body text-sm text-primary font-semibold mt-1">
-                      €{item.price.toFixed(2)}
+                      ₹{item.price.toFixed(2)}
                     </p>
                     <div className="flex items-center gap-2 mt-2">
                       <button
@@ -94,15 +94,15 @@ const CartSheet = ({ open, onOpenChange, items, onUpdateQuantity, onRemoveItem }
             <div className="space-y-3 mb-4">
               <div className="flex justify-between font-body text-sm">
                 <span className="text-muted-foreground">Subtotal</span>
-                <span className="text-foreground">€{subtotal.toFixed(2)}</span>
+                <span className="text-foreground">₹{subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between font-body text-sm">
                 <span className="text-muted-foreground">Shipping</span>
-                <span className="text-foreground">€{shipping.toFixed(2)}</span>
+                <span className="text-foreground">₹{shipping.toFixed(2)}</span>
               </div>
               <div className="flex justify-between font-display text-lg font-semibold border-t pt-3 mt-2">
                 <span>Total</span>
-                <span className="text-primary">€{total.toFixed(2)}</span>
+                <span className="text-primary">₹{total.toFixed(2)}</span>
               </div>
             </div>
             <div className="space-y-2">

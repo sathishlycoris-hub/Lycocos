@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Play, Leaf, Droplets, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 // Import images
 import heroMain from "@/assets/hero-main.jpg";
@@ -19,6 +20,7 @@ import beforeAfter2 from "@/assets/before-after-2.jpg";
 import skinConcernModel from "@/assets/skin-concern-model.webp";
 
 const Index = () => {
+  const navigate = useNavigate();
   const collections = [
     { name: "ADJA GOLDEN", image: collectionAdja },
     { name: "DIJA", image: collectionDija },
@@ -61,10 +63,10 @@ const Index = () => {
       <Header />
 
       {/* Running Marquee Text */}
-      <MarqueeText 
+      {/* <MarqueeText 
         text="Lyco Cosmetics Your ultimate partner for perfect skin" 
         separator="✦"
-      />
+      /> */}
 
       {/* New Hero Section */}
  <section className="relative min-h-[95vh] overflow-hidden">
@@ -83,17 +85,12 @@ const Index = () => {
     <div className="max-w-xl">
 
       {/* Eyebrow Text */}
-      <p className="text-primary font-body uppercase tracking-[0.35em] text-xs mb-6">
+      {/* <p className="text-primary font-body uppercase tracking-[0.35em] text-xs mb-6">
         Luxury Skincare & Wellness
-      </p>
+      </p> */}
 
       {/* Brand Name */}
-      <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] mb-1">
-        Lyco
-      </h1>
-      <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light italic text-primary leading-[1.05] mb-8">
-        Cosmetics
-      </h1>
+     
 
       {/* Description */}
       <p className="font-body text-muted-foreground text-lg md:text-xl mb-10 max-w-md">
@@ -103,11 +100,11 @@ const Index = () => {
 
       {/* CTAs */}
       <div className="flex flex-wrap items-center gap-4 mb-14">
-        <Button variant="gold" size="lg" className="group">
+        <Button variant="gold" size="lg" className="group" onClick={() => navigate('/products')}>
           Shop Collection
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
-        <Button variant="gold-outline" size="lg">
+        <Button variant="gold-outline" size="lg" onClick={() => navigate('/care-clinic')}>
           Discover Lyco
         </Button>
       </div>
@@ -165,8 +162,8 @@ const Index = () => {
             products designed to bring out your natural radiance.
           </p>
           <div className="flex justify-center gap-4 mb-12">
-            <Button variant="gold">Care</Button>
-            <Button variant="gold-outline">Beauty products</Button>
+            <Button variant="gold" onClick={() => navigate('/care-clinic')}>Care</Button>
+            <Button variant="gold-outline" onClick={() => navigate('/products')}>Beauty products</Button>
           </div>
 
           {/* Product Grid */}
@@ -233,7 +230,7 @@ const Index = () => {
                 {product.name}
               </p>
               <p className="text-sm text-muted-foreground">
-                ${product.price}
+                ₹{product.price}
               </p>
             </div>
           </div>
@@ -241,10 +238,10 @@ const Index = () => {
       </div>
 
       <div className="flex gap-4">
-        <Button variant="gold" size="lg">
+        <Button variant="gold" size="lg" onClick={() => navigate('/products')}>
           Shop Adja Golden
         </Button>
-        <Button variant="gold-outline" size="lg">
+        <Button variant="gold-outline" size="lg" onClick={() => navigate('/care-clinic')}>
           Learn More
         </Button>
       </div>
@@ -260,7 +257,7 @@ const Index = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             {collections.map((collection, i) => (
-              <div key={i} className="text-center group cursor-pointer">
+              <div key={i} className="text-center group cursor-pointer" onClick={() => navigate('/products')}>
                 <div className="aspect-square rounded-full overflow-hidden mb-4 border-4 border-transparent group-hover:border-primary transition-colors">
                   <img
                     src={collection.image}
@@ -274,7 +271,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-          <Button variant="gold">View all</Button>
+          <Button variant="gold" onClick={() => navigate('/products')}>View all</Button>
         </div>
       </section>
 
@@ -301,14 +298,15 @@ const Index = () => {
       Shop by skin concern
     </h2>
 
-    <div className="relative flex justify-center items-center max-w-3xl mx-auto">
+    <div className="relative flex justify-center items-center max-w-5xl mx-auto">
       
       {/* Center Image */}
       <img
-  src={skinConcernModel}
-  alt="Skin concern model"
-  className="w-full max-w-[600px] md:max-w-[700px] lg:max-w-[800px] rounded-2xl"
- />
+        src={skinConcernModel}
+        alt="Skin concern model"
+        className="w-full max-w-[700px] md:max-w-[900px] lg:max-w-[1100px] rounded-2xl cursor-pointer hover:opacity-95 transition-opacity"
+        onClick={() => navigate('/products')}
+      />
 
       {/* Fine Lines */}
       {/* <div className="absolute top-10 left-0 flex items-center gap-2">
@@ -389,33 +387,52 @@ const Index = () => {
 
       {/* Testimonials */}
       <section className="py-16 px-4 bg-primary">
-        <div className="container mx-auto">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground text-center mb-8">
-            Testimonial
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-background p-6 rounded-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <span key={j} className="text-primary">★</span>
-                  ))}
-                </div>
-                <p className="font-body text-sm text-muted-foreground mb-4">
-                  "The products are amazing! My skin has never felt better. I highly recommend
-                  Lyco Cosmetics to anyone looking for quality skincare."
-                </p>
-                <p className="font-body text-sm font-semibold text-foreground">
-                  Happy Customer {i}
-                </p>
-              </div>
+  <div className="container mx-auto">
+    <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground text-center mb-8">
+      Testimonial
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-6">
+      {[
+        {
+          name: "Anna",
+          text:
+            "The products are amazing! My skin has never felt better. I highly recommend Lyco Cosmetics to anyone looking for quality skincare.",
+        },
+        {
+          name: "Daniel",
+          text:
+            "Absolutely love these products. The quality is outstanding and my skin feels refreshed every day.",
+        },
+        {
+          name: "Richie",
+          text:
+            "Lyco Cosmetics has completely changed my skincare routine. Simple, effective, and high quality.",
+        },
+      ].map((item, index) => (
+        <div key={index} className="bg-background p-6 rounded-lg">
+          <div className="flex mb-4">
+            {[...Array(5)].map((_, j) => (
+              <span key={j} className="text-primary">★</span>
             ))}
           </div>
+
+          <p className="font-body text-sm text-muted-foreground mb-4">
+            "{item.text}"
+          </p>
+
+          <p className="font-body text-sm font-semibold text-foreground">
+            {item.name}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Newsletter */}
-      <section className="py-16 px-4">
+      {/* <section className="py-16 px-4">
         <div className="container mx-auto text-center max-w-xl">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
             Join our exclusive circle by subscribing to our newsletter.
@@ -429,7 +446,7 @@ const Index = () => {
             <Button variant="gold">→</Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

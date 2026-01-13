@@ -47,7 +47,7 @@ const ProductCard = ({ id, name, price, image }: ProductCardProps) => {
       <div className="mt-3">
         <h3 className="font-body text-sm font-medium text-foreground">{name}</h3>
         <p className="font-body text-sm text-primary font-semibold mt-1">
-          €{price.toFixed(2)}
+          ₹{price.toFixed(2)}
         </p>
       </div>
     </div>

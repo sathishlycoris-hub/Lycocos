@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
@@ -9,6 +10,7 @@ import collectionAdja from "@/assets/collection-adja.jpg";
 import collectionDija from "@/assets/collection-dija.jpg";
 
 const Products = () => {
+  const navigate = useNavigate();
   const products = [
     { name: "Hair balm 30g", price: 22.0, image: productCream },
     { name: "Hair balm 70g", price: 39.0, image: productSerum },
@@ -87,7 +89,7 @@ const Products = () => {
       </div>
     </div>
 
-    <Button variant="gold" size="lg">
+    <Button variant="gold" size="lg" onClick={() => navigate('/care-clinic')}>
       Explore the Collection
     </Button>
   </div>
